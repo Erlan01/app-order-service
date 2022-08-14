@@ -1,0 +1,39 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fast_food
+    username: postgres
+    password: postgres
+  application:
+    name: ORDER-SERVICE
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        connection:
+          charset: UTF-8
+          hbm2ddl:
+            import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
+  sql:
+    init:
+      mode: never
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+
+app:
+  order:
+    ready-wait-time: 600000
+
+
+stripe:
+  secret-key: sk_test_51JkAobLKO4a53BDZfp9GpkCGpBqM2an5RW9zDpbJcCbCpZCIcBf5wdD44Cnkq8KiBMkbqG7gy7DAw1DY07rS7tVb00g7927C5M
+
